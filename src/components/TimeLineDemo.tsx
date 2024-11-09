@@ -1,8 +1,5 @@
-"use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
-import SaturnIcon from './ui/SaturnIcon';
 import RocketIcon from './ui/RocketIcon';
 import Star2Icon from './ui/Star2Icon';
 import WandIcon from './ui/WandIcon';
@@ -18,10 +15,7 @@ interface TimelineEntry {
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
-  const refs = useRef<(HTMLDivElement | null)[]>([]);
-  const createRefCallback = (index: number) => (el: HTMLDivElement | null) => {
-    refs.current[index] = el;
-  };
+  const refs = useRef<(HTMLDivElement | null)[]>(new Array(data.length).fill(null));
   const [inViewStates, setInViewStates] = useState(Array(data.length).fill(false));
   const [imageStates, setImageStates] = useState(data.map(item => item.resultUrl));
   const [wandVisibilityStates, setWandVisibilityStates] = useState(Array(data.length).fill(true));
@@ -50,7 +44,6 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   }, [containerRef]);
 
   useEffect(() => {
-    refs.current = refs.current.slice(0, data.length); // Adjust ref array length if necessary
 
     const observers = refs.current.map((ref, index) => {
       const observer = new IntersectionObserver(
@@ -95,7 +88,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
           <motion.div
             key={item.index}
-            ref={createRefCallback(index)} // Assign ref to the item
+            ref={(el) => { refs.current[index] = el; }} // Assign ref to the item
             initial={{ backgroundColor: "rgb(237 233 254)", boxShadow: "none" }}
             animate={
               inViewStates[index]
@@ -103,24 +96,16 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 : { backgroundColor: "rgb(237 233 254)", boxShadow: "none" }
             }
             transition={{ duration: 0.5 }}
-            className="relative flex items-center justify-between py-10 mx-4 my-52 rounded-lg"
-            style={{ height: "400px", width: "calc(100% - 32px)" }}
+            className="relative flex flex-col md:flex-row items-center justify-between py-10 mx-4 my-52 rounded-lg mobile-timeline"
+            style={{
+              height: "500px",
+              width: "calc(100% - 32px)",
+            }}
           >
-            <motion.div className="relative w-1/2 flex justify-end pr-4 p-4 rounded-lg">
-              <RocketIcon
-                className="absolute"
-                style={{
-                  top: '-15%',
-                  left: '10%',
-                  width: '4rem',
-                  height: '4rem',
-                  animation: 'moveIcon 10s infinite alternate',
-                }}
-                fill='#7A1CAC'
-              />
+            <motion.div className="relative flex flex-col items-center md:w-1/2 px-4">
               {item.profileUrl && (
-                <div className="flex flex-col justify-start h-full w-full mr-20">
-                  <div className="flex items-center justify-end mb-2">
+                <div className="flex flex-col justify-end h-full w-full mb-4 md:mb-0">
+                  <div className="flex items-center justify-center md:justify-end mb-2 lg:mr-36">
                     <h2 className="text-3xl font-semibold text-gray-50 dark:text-gray-50 mr-5">
                       {item.heading}
                     </h2>
@@ -132,8 +117,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                       className="rounded-full shadow-md object-cover"
                     />
                   </div>
-                  <div className="mt-0 max-w-md text-right">
-                    <p className="mt-2 text-2xl text-gray-800 dark:text-gray-800 -mr-7 ml-7">
+                  <div className="mt-0 max-w-md text-center md:text-right">
+                    <p className="mt-2 text-2xl text-gray-800 dark:text-gray-800">
                       {item.description}
                     </p>
                   </div>
@@ -141,19 +126,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               )}
             </motion.div>
 
-            <motion.div className="relative w-1/2 flex justify-start pl-4 p-4 rounded-lg ml-20">
+            <motion.div className="relative flex flex-col justify-center md:w-1/2 px-4">
               <div className="max-w-md relative">
-                <Star2Icon
-                  className="absolute"
-                  style={{
-                    top: '110%',
-                    left: '90%',
-                    width: '4rem',
-                    height: '4rem',
-                    animation: 'moveIcon 10s infinite alternate',
-                  }}
-                  fill='#7A1CAC'
-                />
                 <motion.div
                   key={imageStates[index]} // Ensure exit animation is triggered
                   initial={{ opacity: 0 }} // Start invisible
@@ -161,7 +135,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   exit={{ opacity: 0 }} // Fade out
                   transition={{ duration: 0.5 }} // Transition duration
                   onClick={() => handleImageClick(index)} // Pass index
-                  className="relative cursor-pointer"
+                  className="relative cursor-pointer lg:ml-12"
                 >
                   {imageStates[index] && (
                     <Image
@@ -184,7 +158,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     style={{ top: '10%', left: '110%', textAlign: 'center' }}
                   >
                     <WandIcon
-                      className="absolute"
+                      className="absolute hide-on-mobile"
                       style={{
                         width: '3rem',
                         height: '3rem',
@@ -193,14 +167,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                         animation: 'moveIcon 10s infinite alternate'
                       }}
                     />
-                    <p className="text-white text-sm mt-12 bg-purple-500 rounded-3xl px-2 py-3 whitespace-nowrap">Click Me!</p>
+                    <p className="text-white text-sm mt-12 bg-purple-500 rounded-3xl px-2 py-3 whitespace-nowrap hide-on-mobile">Click Me!</p>
                   </div>
                 )}
               </div>
             </motion.div>
 
             {/* Timeline Connector */}
-            <motion.div className="flex flex-col items-center absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <motion.div className="flex flex-col items-center absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 hide-on-mobile">
               <div className="h-10 w-10 rounded-full bg-purple-500 dark:bg-purple-500 flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-gray-800 border border-neutral-300 dark:border-neutral-700 p-2 transform-translate-z-1/2" />
               </div>

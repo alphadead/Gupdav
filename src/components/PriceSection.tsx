@@ -1,5 +1,4 @@
 import React from 'react';
-import { HoverBorderGradient } from './ui/hover-border-gradient';
 
 // Interface for the data structure
 interface Plan {
@@ -31,14 +30,14 @@ const PricingCard: React.FC<PricingCardProps> = ({
 }) => {
   return (
     <div
-      className={`p-8 rounded-3xl border ${highlight ? 'border-white' : 'border-transparent'} bg-black/50 text-[#d8e0e9] flex flex-col justify-between`}
+      className={`p-6 sm:p-8 rounded-3xl border ${highlight ? 'border-white' : 'border-transparent'} bg-black/50 text-[#d8e0e9] flex flex-col justify-between`}
     >
-      <div>
-        <h2 className="text-4xl font-medium mb-4 text-center">{title}</h2>
-        <p className="text-lg mb-6 text-slate-">{description}</p>
-        <ul className="space-y-3 mb-6">
+      <div className="mb-6">
+        <h2 className="text-2xl sm:text-4xl font-medium mb-4 text-center">{title}</h2>
+        <p className="text-base sm:text-lg mb-4 text-center text-slate-300">{description}</p>
+        <ul className="space-y-3 mb-6 text-left">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center">
+            <li key={index} className="flex items-center sm:justify-start">
               <span className="mr-2 text-blue-500">✔️</span>
               {feature}
             </li>
@@ -49,7 +48,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
         href={buttonLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="px-4 py-2 border border-white rounded-full hover:text-[#7A1CAC] hover:text-[#7A1CAC] transition-colors text-center"
+        className="px-4 py-2 text-sm sm:text-base border border-white rounded-full hover:text-[#7A1CAC] hover:bg-white transition-colors text-center"
       >
         {buttonLabel}
       </a>
@@ -64,8 +63,8 @@ interface PricingSectionProps {
 
 const PricingSection: React.FC<PricingSectionProps> = ({ plans }) => {
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center py-12 mx-20">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 leading-loose">
+    <div className="min-h-screen bg-black flex flex-col items-center justify-center py-12 mx-4 sm:mx-20">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-12 leading-loose">
         {plans.map((plan, index) => (
           <PricingCard
             key={index}
@@ -133,4 +132,5 @@ const jsonData = {
 const App: React.FC = () => {
   return <PricingSection plans={jsonData.plans} />;
 };
+
 export default App;

@@ -7,7 +7,7 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { testimonials } from "@/components/InfiniteMovingCardsDemo";
 import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 import { motion, useAnimation } from "framer-motion";
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReelCarousel from "@/components/ReelCarousel";
 import { Cover } from "@/components/ui/cover";
@@ -38,6 +38,10 @@ const timelineData: TimelineEntry[] = [
 export default function Home() {
   // Animation controls
   const controls = useAnimation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
 
   // useInView hook to monitor element visibility
   const { ref, inView } = useInView({
@@ -70,9 +74,9 @@ export default function Home() {
       <div className="bg-gradient-to-br from-slate-200 to-slate-300 -mt-32 bg-clip-text text-center text-4xl font-light tracking-tight text-transparent md:text-7xl"><Cover>Some of our Work</Cover></div>
       <section id="our-work"><div className="mt-10 -mb-36"><ReelCarousel /></div></section>
       <YtCarousel/>
-      <section id="prices">
+      <section id="prices" className="mt-20">
         <div className="bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text text-center text-4xl font-light tracking-tight text-transparent md:text-7xl mb-8">How it works</div>
-        <div className="h-screen flex items-center justify-center space-x-10 text-xl">
+        <div className="h-auto flex items-center justify-center space-x-10 text-xl">
           <App />
         </div>
       </section>

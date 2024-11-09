@@ -173,8 +173,8 @@ const YtCarousel: React.FC = () => {
                 </div>
 
                 {/* Right Side - Text Panel (2/5 width) */}
-                <div className="w-full md:w-2/5 bg-purple-200 rounded-lg p-6 flex flex-col justify-center items-start shadow-lg ml-7 h-90"> {/* Ensures this has the same height */}
-                  <p className="text-lg italic mb-4 text-[#7A1CAC]">
+                <div className="w-full md:w-2/5 bg-purple-200 rounded-lg p-6 flex flex-col justify-center items-center md:items-start shadow-lg md:ml-7 h-90"> {/* Ensures this has the same height */}
+                  <p className="text-lg italic mb-4 text-[#7A1CAC] text-center md:text-left">
                     {textArray[i]}
                   </p>
                 </div>

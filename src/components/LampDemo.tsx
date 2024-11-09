@@ -9,7 +9,7 @@ import Star2Icon from './ui/Star2Icon';
 
 export function LampDemo() {
   return (
-    <LampContainer>
+    <LampContainer className="relative">
       <motion.h1
         initial={{ opacity: 0.5, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -18,31 +18,29 @@ export function LampDemo() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-2 bg-gradient-to-br from-gray-100 to-gray-200 py-4 bg-clip-text text-center text-4xl font-light tracking-tight text-transparent md:text-7xl"
+        className="relative mt-8 md:mt-2 py-4 bg-gradient-to-br from-gray-100 to-gray-200 bg-clip-text text-center text-5xl md:text-7xl font-light tracking-tight text-transparent"
       >
-        <div>
-          <div>
-            Unveiling Our Impact
-          </div>
-          <div className="pt-10 flex flex-row space-x-10 justify-center items-center">
+        <div className="mt-96 md:mt-8 text-center px-4 md:px-0">
+          <h2 className="text-4xl md:text-7xl">Unveiling Our Impact</h2>
+          <div className="pt-10 flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-10 justify-center items-center">
             <div className="text-center">
-              <div className="text-5xl">3900+</div>
-              <div className="text-2xl mt-2 font-light">videos</div>
+              <div className="text-4xl md:text-5xl">3900+</div>
+              <div className="text-xl md:text-2xl mt-2 font-light">videos</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl">620M+</div>
-              <div className="text-2xl mt-2 font-light">views</div>
+              <div className="text-4xl md:text-5xl">620M+</div>
+              <div className="text-xl md:text-2xl mt-2 font-light">views</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl">780k+</div>
-              <div className="text-2xl mt-2 font-light">hrs watchtime</div>
+              <div className="text-4xl md:text-5xl">780k+</div>
+              <div className="text-xl md:text-2xl mt-2 font-light">hrs watchtime</div>
             </div>
           </div>
         </div>
         <div className="absolute inset-0 pointer-events-none">
           {/* Fixed positions for icons */}
           <RocketIcon
-            className="absolute"
+            className="absolute hidden md:block"
             style={{
               top: '10%',
               left: '-10%',
@@ -53,7 +51,7 @@ export function LampDemo() {
             fill="#808184"
           />
           <StarIcon
-            className="absolute"
+            className="absolute hidden md:block"
             style={{
               color: '#FFF',
               top: '115%',
@@ -65,7 +63,7 @@ export function LampDemo() {
             fill="#808184"
           />
           <SaturnIcon
-            className="absolute"
+            className="absolute hidden md:block"
             style={{
               color: '#FFF',
               top: '120%',
@@ -77,7 +75,7 @@ export function LampDemo() {
             fill="#808184"
           />
           <MoonIcon
-            className="absolute"
+            className="absolute hidden md:block"
             style={{
               color: '#FFF',
               top: '65%',
@@ -89,7 +87,7 @@ export function LampDemo() {
             fill="#808184"
           />
           <Star2Icon
-            className="absolute twinkle"
+            className="absolute twinkle hidden md:block"
             style={{
               color: '#FFF',
               top: '15%',
@@ -100,7 +98,7 @@ export function LampDemo() {
             fill="#808184"
           />
           <Star2Icon
-            className="absolute twinkle"
+            className="absolute twinkle hidden md:block"
             style={{
               color: '#FFF',
               top: '100%',
