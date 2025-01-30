@@ -67,8 +67,8 @@ export default function Home() {
       <section id="about-us">
         <div id="hero-section" className="pb-10"><HeroSection /></div>
         <InfiniteMovingCards items={testimonials} direction="left" speed="normal" />
-        <div className="bg-gradient-to-br from-slate-200 to-slate-300 mt-20 -mb-28 bg-clip-text text-center text-4xl font-light tracking-tight text-transparent md:text-7xl">Results</div>
-        <div className="-mb-32"><Timeline data={timelineData}/></div>
+        {/* <div className="bg-gradient-to-br from-slate-200 to-slate-300 mt-20 -mb-28 bg-clip-text text-center text-4xl font-light tracking-tight text-transparent md:text-7xl">Results</div>
+        <div className="-mb-32"><Timeline data={timelineData}/></div> */}
       </section>
       <div className="mt-20"><LampDemo /></div>
       <div className="bg-gradient-to-br from-slate-200 to-slate-300 -mt-32 bg-clip-text text-center text-4xl font-light tracking-tight text-transparent md:text-7xl"><Cover>Some of our Work</Cover></div>
