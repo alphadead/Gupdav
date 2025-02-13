@@ -77,11 +77,11 @@ export default function Home() {
       <section id="prices" className="mt-20">
         <div className="bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text text-center text-4xl font-light tracking-tight text-transparent md:text-7xl mb-8">How it works</div>
         <div className="h-auto flex items-center justify-center space-x-10 text-xl">
-          <App />
+          <App />  
         </div>
+        <section className="mt-0">
+        <div className="bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text text-center text-2xl font-light tracking-tight text-transparent md:text-5xl mb-8"><a href="https://gupdav.my.canva.site/gupdav" className="hover:text-[#7A1CAC] transition-colors">Need more information in detail? Click HERE!</a></div>
       </section>
-      <section id="more" className="mt-20">
-        <div className="bg-gradient-to-br from-slate-200 to-slate-300 bg-clip-text text-center text-4xl font-light tracking-tight text-transparent md:text-7xl mb-8"><a href="https://gupdav.my.canva.site/gupdav" className="hover:text-[#7A1CAC] transition-colors">Want to know in Detail?</a></div>
       </section>
       <div className="qna -mt-10">
         <TypewriterEffectSmoothDemo />
