@@ -20,15 +20,11 @@ const YtCarousel: React.FC = () => {
   const videoLinks = [
     '/videos/video_1.mp4',
     '/videos/video_2.mp4',
-    '/videos/video_3.mp4',
-    '/videos/video_4.mp4',
   ];
 
   const textArray = [
     "This video was my 2nd video which brought me 20+ leads and 12 conversions just through the video, amazing work guys!",
     "My views went from 500-600 to 11k with the first video Gupdav did for me, I was blown away with their level of expertise.",
-    "They not only researched the best content, wrote the best script but also gave me the video in just 2 days, so confident working with these guys.",
-    "Not to brag, but this page is how we are trying to portray ourselves as 2 people who are trying to help everyone to grow their content.",
   ];
 
   const handleRealIndexChange = (swiper: any) => {
