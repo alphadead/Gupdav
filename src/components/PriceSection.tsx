@@ -85,17 +85,17 @@ const PricingSection: React.FC<PricingSectionProps> = ({ plans }) => {
 const jsonData = {
   plans: [
     {
-      title: 'Launchbase',
+      title: 'Personal Branding',
       description: 'Ideal for established Entrepreneurs to showcase their journey',
       details: [
-        '4 YouTube, 12 shorts/month',
+        '15 shorts/month',
         'Custom Scripts',
         'Personalised Style',
         'Scripting',
         'Channel Optimization',
-        'Thumbnail Design',
+        'Branding Design',
         'Video editing in the personalised style',
-        'Posted on YouTube, Instagram etc.',
+        'Posted on Instagram, TikTok etc.',
         'Reporting & Analytics',
         '24x7 WhatsApp Support',
       ],
@@ -103,17 +103,17 @@ const jsonData = {
       buttonLink: 'https://calendly.com/gupdav/improve-your-social-presence'
     },
     {
-      title: 'RapidGrowth',
-      description: 'Ideal for established Entrepreneurs to advance their journey',
+      title: 'Youtube Growth',
+      description: 'Ideal for creators to advance their journey on Youtube',
       details: [
-        '6 YouTube, 18 shorts/month',
+        '5 YouTube',
         'Custom Scripts',
         'Personalised Style',
         'Scripting',
         'Channel Optimization',
         'Thumbnail Design',
         'Video editing in the personalised style',
-        'Posted on YouTube, Instagram etc.',
+        'YouTube management',
         'Reporting & Analytics',
         '24x7 WhatsApp Support',
       ],
@@ -121,14 +121,12 @@ const jsonData = {
       buttonLink: 'https://calendly.com/gupdav/improve-your-social-presence'
     },
     {
-      title: 'Podcaster?',
-      description: 'Ideal for podcasts seeking a complete solution',
+      title: 'Personal Branding + Youtube Growth',
+      description: 'Ideal for established Entrepreneurs seeking a complete solution',
       details: [
-        '4 podcasts/month',
-        'Repurposed into 16-20 shorts',
+        '4 podcasts/month + 12 shorts/month',
+        'Custom Scripts',
         'Personalised Style',
-        'Help in guest review',
-        'Questionniare creation',
         'Channel Optimization',
         'Thumbnail Design',
         'Video editing in the personalised style',
