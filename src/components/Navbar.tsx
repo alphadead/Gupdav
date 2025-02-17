@@ -57,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
           {[
             { name: "OUR WORK", href: "#our-work" },
             { name: "SERVICES", href: "#prices" },
-            // { name: "RESULTS", href: "#prices" },
+            { name: "OFFERS", href: "#prices" },
             { name: "CONTACT US", href: "https://calendly.com/gupdav/improve-your-social-presence" }
           ].map((item) => (
             <Link href={item.href} key={item.name}>
